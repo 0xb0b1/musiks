@@ -18,3 +18,19 @@ th {
   font-family: 'Lexend', sans-serif;
   opacity: 0.8;
 }
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+}
+
+
+.h-home {
+  height: calc(100vh - 4rem);
+}
+
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  z-index: 100;
+}
