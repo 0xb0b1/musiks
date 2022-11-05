@@ -14,7 +14,7 @@ body {
 }
 
 
-th {
+table{
   font-family: 'Lexend', sans-serif;
   opacity: 0.8;
 }
@@ -34,3 +34,8 @@ th {
   visibility: visible;
   z-index: 100;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
