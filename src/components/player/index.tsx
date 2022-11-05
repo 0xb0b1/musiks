@@ -15,7 +15,7 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 export const Player = () => {
   const [isPlaying, setIsPlaying] = useState(true)
   const [isShuffle, setIsShuffle] = useState(true)
-  const [isLooping, setisLooping] = useState(true)
+  // const [isLooping, setisLooping] = useState(true)
 
   return (
     <div className='hidden lg:flex flex-col items-center justify-between px-4 py-4 h-home w-96 text-white bg-gradient-to-t from-gray-800'>
@@ -42,12 +42,12 @@ export const Player = () => {
 
       <footer>
         <div className='flex items-center gap-2 text-sm'>
-          <span className='inline-flex px-2 text-center'>{convertDurationToTimeString(120)}</span>
+          <span className='inline-flex px-2 text-center'>{convertDurationToTimeString(0)}</span>
           <div className='flex-1'>
             {isPlaying ? (
               <Slider
                 max={240}
-                value={120}
+                value={0}
                 trackStyle={{ backgroundColor: '#04d361' }}
                 railStyle={{ backgroundColor: '#323232' }}
                 handleStyle={{ borderColor: '#04d361', borderWidth: 4 }}
