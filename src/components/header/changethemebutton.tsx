@@ -1,9 +1,9 @@
-import { Sun } from 'phosphor-react'
+import { ToggleRight } from 'phosphor-react'
 
 export const ChangeThemeButton = () => {
   return (
     <button className='flex items-center ml-auto'>
-      <Sun size={32} />
+      <ToggleRight size={32} />
     </button>
   )
 }
