@@ -1,6 +1,9 @@
+import { Play } from 'phosphor-react'
+import { Recommendations } from '../../components/recommendations'
+
 export const Home = () => {
   return (
-    <div className='w-full px-4 h-home overflow-y-scroll no-scrollbar text-gray-50'>
+    <div className='w-full px-4 h-home overflow-y-auto no-scrollbar text-gray-50'>
       <section>
         <h2 className='mt-2 mb-2 font-semibold'>Recent activity</h2>
         <ul className='list-none flex flex-col lg:grid grid-cols-2 gap-2'>
@@ -23,7 +26,7 @@ export const Home = () => {
               type='button'
               className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg'
             >
-              {/* <img src={playGreen} alt='' /> */}
+              <Play color='green' size={22} />
             </button>
           </li>
           <li className='flex items-center relative bg-gray-800  p-5 rounded-3xl'>
@@ -45,13 +48,13 @@ export const Home = () => {
               type='button'
               className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg'
             >
-              {/* <img src={playGreen} alt='' /> */}
+              <Play color='green' size={22} />
             </button>
           </li>
         </ul>
       </section>
 
-      {/* <Recommendations /> */}
+      <Recommendations />
     </div>
   )
 }
