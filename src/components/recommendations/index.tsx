@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import { useRefreshToken } from '../../hooks/useRefreshToken'
 import { api } from '../../services/api'
 import { Loading } from '../loading'
-// import { Loading } from '../Loading'
 
 interface FeaturedPlaylistsProps {
   playlists: {

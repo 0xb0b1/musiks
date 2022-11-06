@@ -24,9 +24,9 @@ export const Home = () => {
             </div>
             <button
               type='button'
-              className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg'
+              className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg hover:scale-105 transition ease-in-out delay-75'
             >
-              <Play color='green' size={22} />
+              <Play className='opacity-50 hover:opacity-100' color='green' size={22} />
             </button>
           </li>
           <li className='flex items-center relative bg-gray-800  p-5 rounded-3xl'>
@@ -46,9 +46,9 @@ export const Home = () => {
             </div>
             <button
               type='button'
-              className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg'
+              className='w-8 h-8 mt-12 flex items-center justify-center border-0 bg-gray-700 rounded-lg hover:scale-105 transition ease-in-out delay-75'
             >
-              <Play color='green' size={22} />
+              <Play className='opacity-50 hover:opacity-100' color='green' size={22} />
             </button>
           </li>
         </ul>
