@@ -13,8 +13,8 @@ import 'rc-slider/assets/index.css'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString'
 
 export const Player = () => {
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isShuffle, setIsShuffle] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isShuffle, setIsShuffle] = useState(false)
   // const [isLooping, setisLooping] = useState(true)
 
   return (
@@ -35,13 +35,13 @@ export const Player = () => {
           <span className='block mt-4 text-opacity-60 leading-6'>Billie Eilish</span>
         </div>
       ) : (
-        <div className='flex items-center justify-center w-full h-80 rounded-3xl bg-gradient-to-r p-4 text-center'>
-          <strong>Select a song</strong>
+        <div className='flex items-center justify-center w-full h-80 rounded-3xl bg-gradient-to-t p-4 text-center'>
+          <strong>Select a playlist</strong>
         </div>
       )}
 
       <footer>
-        <div className='flex items-center gap-2 text-sm'>
+        <div className='flex justify-between items-center text-sm'>
           <span className='inline-flex px-2 text-center'>{convertDurationToTimeString(0)}</span>
           <div className='flex-1'>
             {isPlaying ? (
@@ -53,10 +53,10 @@ export const Player = () => {
                 handleStyle={{ borderColor: '#04d361', borderWidth: 4 }}
               ></Slider>
             ) : (
-              <div className='w-full h-1 bg-purple-300 '></div>
+              <div className='h-1 bg-purple-300 '></div>
             )}
           </div>
-          <span>{convertDurationToTimeString(240)}</span>
+          <span className='inline-flex px-2 text-center'>{convertDurationToTimeString(240)}</span>
         </div>
 
         <div className='flex items-center justify-center my-4 gap-4'>
