@@ -1,57 +1,31 @@
-import axios from 'axios'
 import { Heart, Play } from 'phosphor-react'
-import { useState, useEffect } from 'react'
+import { useQuery } from 'react-query'
 
 import { useRefreshToken } from '../../hooks/useRefreshToken'
 import { api } from '../../services/api'
 import { Loading } from '../loading'
-
-interface FeaturedPlaylistsProps {
-  playlists: {
-    items: {
-      description: string
-      href: string
-      id: string
-      images: {
-        url: string
-      }[]
-      name: string
-      tracks: {
-        href: string
-        total: number
-      }
-      uri: string
-    }[]
-  }
-}
+import { FeaturedPlaylistsQueryProps } from './interfaces'
 
 export const Recommendations = () => {
   const { getRefreshToken } = useRefreshToken()
-  const [isLoading, setIsLoading] = useState(true)
-  const [featuredPlaylists, setFeaturedPlaylists] = useState<FeaturedPlaylistsProps>()
 
-  useEffect(() => {
-    const source = axios.CancelToken.source()
+  const getRecommendations = async () => {
+    const myToken = await getRefreshToken()
+    const response = await api.get('/browse/featured-playlists?offset=0&limit=20', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + myToken,
+      },
+    })
 
-    const getFeaturedPlaylists = async () => {
-      const myToken = await getRefreshToken()
-      api
-        .get('/browse/featured-playlists?offset=0', {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + myToken,
-          },
-        })
-        .then((response) => setFeaturedPlaylists(response.data))
-        .finally(() => setIsLoading(false))
-    }
-    getFeaturedPlaylists()
+    return response.data
+  }
 
-    return () => {
-      source.cancel()
-    }
-  }, [])
+  const { data, isLoading } = useQuery<FeaturedPlaylistsQueryProps>(
+    'recommendations',
+    getRecommendations,
+  )
 
   if (isLoading) return <Loading />
 
@@ -77,8 +51,8 @@ export const Recommendations = () => {
           </tr>
         </thead>
         <tbody>
-          {featuredPlaylists?.playlists.items.map((item, index) => (
-            <tr key={index}>
+          {data?.playlists?.items.map((item) => (
+            <tr key={item.id}>
               <td style={{ width: 72 }} className='px-4 py-3 text-sm'>
                 <img src={item.images[0].url} alt='N' className='w-8 h-8 rounded-sm' />
               </td>
