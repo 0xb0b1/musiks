@@ -2,7 +2,7 @@ import { Plus } from 'phosphor-react'
 
 export const Playlists = () => {
   return (
-    <div className='w-full px-4 text-gray-200 overflow-y-scroll no-scrollbar'>
+    <div className='w-full px-4 h-home text-gray-200 overflow-y-auto no-scrollbar'>
       <header>
         <h2 className='mt-2 text-lg font-semibold'>My Playlists</h2>
       </header>
